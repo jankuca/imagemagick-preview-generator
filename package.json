@@ -1,0 +1,10 @@
+{
+  "name": "imagemagick-preview-generator",
+  "version": "0.1.0",
+  "author": "Jan Kuča <jan@jankuca.com> (http://github.com/jankuca)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jankuca/imagemagick-preview-generator"
+  },
+  "main": "./src/preview-generator"
+}
