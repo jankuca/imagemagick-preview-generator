@@ -337,11 +337,6 @@ namespace Magick
     void magick(const std::string &magick_);
     std::string magick(void) const;
 
-    // Associate a mask with the image. The mask must be the same dimensions
-    // as the image. Pass an invalid image to unset an existing clip mask.
-    void mask(const Image &mask_);
-    Image mask(void) const;
-
     // Image supports transparency (matte channel)
     void matte(const bool matteFlag_);
     bool matte(void) const;
@@ -788,9 +783,6 @@ namespace Magick
     void composite(const Image &compositeImage_,const ::ssize_t xOffset_,
       const ::ssize_t yOffset_,const CompositeOperator compose_=InCompositeOp);
 
-    // Determines the connected-components of the image
-    void connectedComponents(const size_t connectivity_);
-
     // Contrast image (enhance intensity differences in image)
     void contrast(const size_t sharpen_);
 
@@ -903,57 +895,36 @@ namespace Magick
     // target pixel and are neighbors of the target pixel.
     // Uses current fuzz setting when determining color match.
     void floodFillColor(const Geometry &point_,const Color &fillColor_);
-    void floodFillColor(const Geometry &point_,const Color &fillColor_,
-      const bool invert_);
     void floodFillColor(const ::ssize_t x_,const ::ssize_t y_,
       const Color &fillColor_);
-    void floodFillColor(const ::ssize_t x_,const ::ssize_t y_,
-      const Color &fillColor_,const bool invert_);
 
     // Flood-fill color across pixels starting at target-pixel and
     // stopping at pixels matching specified border color.
     // Uses current fuzz setting when determining color match.
     void floodFillColor(const Geometry &point_,const Color &fillColor_,
       const Color &borderColor_);
-    void floodFillColor(const Geometry &point_,const Color &fillColor_,
-      const Color &borderColor_,const bool invert_);
     void floodFillColor(const ::ssize_t x_,const ::ssize_t y_,
       const Color &fillColor_,const Color &borderColor_);
-    void floodFillColor(const ::ssize_t x_,const ::ssize_t y_,
-      const Color &fillColor_,const Color &borderColor_,const bool invert_);
 
     // Floodfill pixels matching color (within fuzz factor) of target
     // pixel(x,y) with replacement opacity value using method.
     void floodFillOpacity(const ::ssize_t x_,const ::ssize_t y_,
-      const unsigned int opacity_,const bool invert_=false);
-    void floodFillOpacity(const ::ssize_t x_,const ::ssize_t y_,
       const unsigned int opacity_,const PaintMethod method_);
-    void floodFillOpacity(const ::ssize_t x_,const ::ssize_t y_,
-      const unsigned int opacity_,const Color &target_,
-      const bool invert_=false);
 
     // Flood-fill texture across pixels that match the color of the
     // target pixel and are neighbors of the target pixel.
     // Uses current fuzz setting when determining color match.
     void floodFillTexture(const Geometry &point_,const Image &texture_);
-    void floodFillTexture(const Geometry &point_,const Image &texture_,
-      const bool invert_);
     void floodFillTexture(const ::ssize_t x_,const ::ssize_t y_,
        const Image &texture_);
-    void floodFillTexture(const ::ssize_t x_,const ::ssize_t y_,
-       const Image &texture_,const bool invert_);
 
     // Flood-fill texture across pixels starting at target-pixel and
     // stopping at pixels matching specified border color.
     // Uses current fuzz setting when determining color match.
     void floodFillTexture(const Geometry &point_,const Image &texture_,
        const Color &borderColor_);
-    void floodFillTexture(const Geometry &point_,const Image &texture_,
-       const Color &borderColor_,const bool invert_);
     void floodFillTexture(const ::ssize_t x_,const ::ssize_t y_,
       const Image &texture_,const Color &borderColor_);
-    void floodFillTexture(const ::ssize_t x_,const ::ssize_t y_,
-      const Image &texture_,const Color &borderColor_,const bool invert_);
 
     // Flop image (reflect each scanline in the horizontal direction)
     void flop(void);
@@ -1007,9 +978,6 @@ namespace Magick
     PixelPacket *getPixels(const ::ssize_t x_,const ::ssize_t y_,
       const size_t columns_,const size_t rows_);
 
-    // Converts the colors in the image to gray.
-    void grayscale(const PixelIntensityMethod method_);
-
     // Apply a color lookup table (Hald CLUT) to the image.
     void haldClut(const Image &clutImage_);
 
@@ -1024,11 +992,6 @@ namespace Magick
     // either as a magnitude / phase or real / imaginary image pair.
     void inverseFourierTransform(const Image &phase_);
     void inverseFourierTransform(const Image &phase_,const bool magnitude_);
-
-    // An edge preserving noise reduction filter.
-    void kuwahara(const double radius_=0.0,const double sigma_=1.0);
-    void kuwaharaChannel(const ChannelType channel_,const double radius_=0.0,
-      const double sigma_=1.0);
 
     // Level image. Adjust the levels of the image by scaling the
     // colors falling between specified white and black points to the
@@ -1134,8 +1097,7 @@ namespace Magick
     void opacity(const unsigned int opacity_);
 
     // Change color of opaque pixel to specified pen color.
-    void opaque(const Color &opaqueColor_,const Color &penColor_,
-      const bool invert_=MagickFalse);
+    void opaque(const Color &opaqueColor_,const Color &penColor_);
 
     // Perform a ordered dither based on a number of pre-defined dithering
     // threshold maps, but over multiple intensity levels.
@@ -1540,13 +1502,6 @@ namespace Magick
     void unregisterId(void);
 
   private:
-
-    void read(MagickCore::Image *image,
-      MagickCore::ExceptionInfo *exceptionInfo);
-
-    void floodFill(const ssize_t x_,const ssize_t y_,
-      const Magick::Image *fillPattern_,const Color &fill_,
-      const MagickCore::PixelPacket *target,const bool invert_);
 
     ImageRef *_imgRef;
   };

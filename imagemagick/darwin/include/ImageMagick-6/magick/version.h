@@ -27,11 +27,11 @@ extern "C" {
 */
 #define MagickPackageName "ImageMagick"
 #define MagickCopyright  "Copyright (C) 1999-2014 ImageMagick Studio LLC"
-#define MagickSVNRevision  "17097"
-#define MagickLibVersion  0x690
-#define MagickLibVersionText  "6.9.0"
+#define MagickSVNRevision  "15976"
+#define MagickLibVersion  0x689
+#define MagickLibVersionText  "6.8.9"
 #define MagickLibVersionNumber  2,0,0
-#define MagickLibAddendum  "-1"
+#define MagickLibAddendum  "-3"
 #define MagickLibInterface  2
 #define MagickLibMinInterface  2
 #if defined(_WINDOWS)
@@ -43,16 +43,16 @@ extern "C" {
 #else
 #define MagickPlatform  "x86_64"
 #endif
-#define MagickppLibVersionText  "6.9.0"
-#define MagickppLibVersionNumber  5:0:0
-#define MagickppLibAddendum  "-1"
-#define MagickppLibInterface  5
-#define MagickppLibMinInterface  5
-#define MagickReleaseDate  "2014-11-24"
-#define MagickChangeDate   "20141120"
+#define MagickppLibVersionText  "6.8.9"
+#define MagickppLibVersionNumber  4:0:0
+#define MagickppLibAddendum  "-3"
+#define MagickppLibInterface  4
+#define MagickppLibMinInterface  4
+#define MagickReleaseDate  "2014-06-17"
+#define MagickChangeDate   "20140608"
 #define MagickFeatures "DPC"
-#define MagickDelegates "bzlib mpeg xml zlib"
-#define MagickHomeURL  "file:///ImageMagick-6.9.0/share/doc/ImageMagick-6/index.html"
+#define MagickDelegates "bzlib mpeg jng jpeg lcms png tiff xml zlib"
+#define MagickHomeURL  "file:///ImageMagick-6.8.9/share/doc/ImageMagick-6/index.html"
 #define MagickAuthoritativeURL  "http://www.imagemagick.org"
 #if (MAGICKCORE_QUANTUM_DEPTH == 8)
 #define MagickQuantumDepth  "Q8"

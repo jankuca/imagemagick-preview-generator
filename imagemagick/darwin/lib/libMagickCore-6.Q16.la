@@ -17,7 +17,7 @@ old_library=''
 inherited_linker_flags='  -pthread'
 
 # Libraries that this one depends upon.
-dependency_libs=' -L$MAGICK_HOME-1/magick -L$MAGICK_HOME-1/wand -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib -lbz2 -lxml2 -lz -lm'
+dependency_libs=' -L$MAGICK_HOME-3/jpeg/.libs -L$MAGICK_HOME-3/jpeg -L$MAGICK_HOME-3/lcms/src/.libs -L$MAGICK_HOME-3/lcms/src -L$MAGICK_HOME-3/magick -L$MAGICK_HOME-3/openjp2 -L$MAGICK_HOME-3/png/.libs -L$MAGICK_HOME-3/png -L$MAGICK_HOME-3/tiff/libtiff/.libs -L$MAGICK_HOME-3/tiff/libtiff -L$MAGICK_HOME-3/ttf/objs/.libs -L$MAGICK_HOME-3/ttf/objs -L$MAGICK_HOME-3/wand -L$MAGICK_HOME-3/zlib -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib -lbz2 -lxml2 -lz -lm'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''

@@ -163,9 +163,7 @@ extern MagickExport int
   GetImageGeometry(Image *,const char *,const unsigned int,RectangleInfo *)
     magick_attribute((deprecated)),
   ParseImageGeometry(const char *,ssize_t *,ssize_t *,size_t *,size_t *)
-    magick_attribute((deprecated)),
-  SystemCommand(const MagickBooleanType,const MagickBooleanType,const char *,
-    ExceptionInfo *) magick_attribute((deprecated));
+    magick_attribute((deprecated));
 
 extern MagickExport MagickBooleanType
   AcquireOneCacheViewPixel(const CacheView *,const ssize_t,const ssize_t,
@@ -333,7 +331,6 @@ extern MagickExport void
   DestroyMagickRegistry(void) magick_attribute((deprecated)),
   *GetConfigureBlob(const char *,char *,size_t *,ExceptionInfo *)
     magick_attribute((deprecated)),
-  GetExceptionInfo(ExceptionInfo *),
   *GetMagickRegistry(const ssize_t,RegistryType *,size_t *,ExceptionInfo *)
     magick_attribute((deprecated)),
   IdentityAffine(AffineMatrix *) magick_attribute((deprecated)),

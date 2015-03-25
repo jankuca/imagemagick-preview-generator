@@ -504,9 +504,6 @@
         <message name="ImageDepthNotSupported">
           profondeur d'image non supportée
         </message>
-        <message name="ImageMorphologyDiffers">
-          différences dans la morphology de l'image
-        </message>
         <message name="ImageSequenceRequired">
           une séquence d'images est requise
         </message>
@@ -935,9 +932,6 @@
           </message>
           <message name="MemoryAllocationFailed">
             Échec allocation mémoire
-          </message>
-          <message name="TooManyObjects">
-            too many objects
           </message>
           <message name="UnableToAcquireString">
             échec acquisition de la chaine

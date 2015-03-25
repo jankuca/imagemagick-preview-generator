@@ -65,55 +65,15 @@ namespace Magick
     Pixels(const Pixels& pixels_);
     const Pixels& operator=(const Pixels& pixels_);
 
-    Magick::Image             _image;      // Image reference
-    MagickCore::CacheView     *_view;      // Image view handle
-    ::ssize_t                 _x;          // Left ordinate of view
-    ::ssize_t                 _y;          // Top ordinate of view
-    size_t                    _columns;    // Width of view
-    size_t                    _rows;       // Height of view
+    Magick::Image             _image;     // Image reference
+    MagickCore::CacheView     *_view;     // Image view handle
+    ::ssize_t                 _x;         // Left ordinate of view
+    ::ssize_t                 _y;         // Top ordinate of view
+    size_t                    _columns;   // Width of view
+    size_t                    _rows;      // Height of view
+    MagickCore::ExceptionInfo _exception; // Any thrown exception
 
   }; // class Pixels
-
-  class MagickPPExport PixelData
-  {
-  public:
-
-    // Construct pixel data using specified image
-    PixelData(Magick::Image &image_,std::string map_,const StorageType type_);
-
-    // Construct pixel data using specified image
-    PixelData(Magick::Image &image_,const ::ssize_t x_,const ::ssize_t y_,
-      const size_t width_,const size_t height_,std::string map_,
-      const StorageType type_);
-
-    // Destroy pixel data
-    ~PixelData(void);
-
-    // Pixel data buffer
-    const void *data(void) const;
-
-    // Length of the buffer
-    ::ssize_t length(void) const;
-
-    // Size of the buffer in bytes
-    ::ssize_t size(void) const;
-
-  private:
-
-    // Copying and assigning PixelData is not supported
-    PixelData(const PixelData& pixels_);
-    const PixelData& operator=(const PixelData& pixels_);
-
-    void init(Magick::Image &image_,const ::ssize_t x_,const ::ssize_t y_,
-      const size_t width_,const size_t height_,std::string map_,
-      const StorageType type_);
-
-    void relinquish(void) throw();
-
-    void      *_data;  // The pixel data
-    ::ssize_t _length; // Length of the data
-    ::ssize_t _size;   // Size of the data
-  }; // class PixelData
 
 } // Magick namespace
 

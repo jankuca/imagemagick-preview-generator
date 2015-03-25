@@ -1,138 +1,3 @@
-2014-11-20  6.9.0-1 Glenn Randers-Pehrson <glennrp@image...>
-  * Don't handle a "previous" image in the JNG decoder.
-  * Don't override gamma with 1.0 when reading a grayscale PNG image (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26576).
-
-2014-11-20  6.9.0-1 Cristy  <quetzlzacatenango@image...>
-  * Fix double free / invalid read when converting jpg to pdb (thanks to
-    Hanno).
-  * Maximum XWD image size is 64Kx64K (thanks to Hanno).
-  * Maximum DPX number of elements is 8 (thanks to Hanno).
-  * Transient problem with SVG (reference
-      http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26587).
-
-2014-11-16  6.9.0-0 Cristy  <quetzlzacatenango@image...>
-  * New version 6.9.0-0, SVN revision 17067.
-
-2014-11-03  6.9.0-0 Cristy  <quetzlzacatenango@image...>
-  * Check for zero-sized rendered SVG image (bug report from
-    Vladimir Davydov).
-
-2014-11-01  6.8.9-10 Cristy  <quetzlzacatenango@image...>
-  * New version 6.8.9-10, SVN revision 16910.
-
-2014-10-29  6.8.9-10 Cristy  <quetzlzacatenango@image...>
-  * EXIF directory offsets must be greater than 0 (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26456).
-  * Accept morphology kernels from files (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=2&t=26466).
-  * Don't optimize JPEG compression by default (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26482).
-
-2014-10-26  6.8.9-10 Dirk Lemstra <dirk@snakeware...>
-  * Added support for reading jpeg compressed YCCK tiff files (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=24412).
-  * Fixed reading DICOM files with big endian transfer syntax (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26448).
-
-2014-10-25  6.8.9-9 Cristy  <quetzlzacatenango@image...>
-  * New version 6.8.9-9, SVN revision 16819.
-
-2014-10-03  6.8.9-9 Dirk Lemstra <dirk@snakeware...>
-  * Added sixel coder created by Hayaki Saito (@kefir_).
-  * Fixed buffer overflow in PCX and DCM coder (bug report from Hanno Böck).
-  * Added support for reading/writing the tIME chunk in the PNG coder.
-  * Added eps:fit-page option to the PS coder to set -dEPSFitPage.
-
-2014-09-30  6.8.9-9 Cristy  <quetzlzacatenango@image...>
-  * Support xyY colorspace (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=2&t=26324).
-  * Reduce noise while preserving edges with the -kuwahara option.
-  * Off-by-one count when parsing an 8BIM profile.
-  * Locale.c won't build if uselocale found but strtod_l isn't (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26362).
-  * OpenCL no longer benchmarks are run on every initialization (patch
-    submitted by Jan Steffens).
-  * Don't clone a 0x0 image (bug report from Hanno Böck).
-
-2014-09-21  6.8.9-8 Cristy  <quetzlzacatenango@image...>
-  * New version 6.8.9-8, SVN revision 16502.
-
-2014-09-16  6.8.9-8 Cristy  <quetzlzacatenango@image...>
-  * JPEG library version >= 80 is thread safe (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=2&t=25495).
-
-2014-08-31  6.8.9-8 Dirk Lemstra <dirk@snakeware...>
-  * Added support for some legacy dds formats (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=2&t=26184).
-
-2014-08-16  6.8.9-7 Cristy  <quetzlzacatenango@image...>
-  * New version 6.8.9-7, SVN revision 16330.
-
-2014-08-14  6.8.9-7 Cristy  <quetzlzacatenango@image...>
-  * Fix off by one buglet when extracting profiles 8BIM (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26095).
-
-2014-07-31  6.8.9-7 Dirk Lemstra <dirk@snakeware...>
-  * Fixed bug when reading 1 bit PSD. (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=26015).
-
-2014-07-25  6.8.9-7 Glenn Randers-Pehrson <glennrp@image...>
-  * Relocate initialization of "image_colors" in the PNG encoder, to avoid
-    a possible use of uninitialized variable.
-
-2014-07-25  6.8.9-6 Cristy  <quetzlzacatenango@image...>
-  * New version 6.8.9-6, SVN revision 16211.
-
-2014-07-24  6.8.9-6 Glenn Randers-Pehrson <glennrp@image...>
-  * Use IsOptionMember() instead of LocaleNCompare() in coders/png.c to
-    parse the list of excluded and included PNG chunks.
-
-2014-07-19  6.8.9-6 Dirk Lemstra <dirk@snakeware...>
-  * Fixed fill-rule in SVG clip path (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=2&t=25882).
-
-2014-07-14  6.8.9-6 Glenn Randers-Pehrson <glennrp@image...>
-  * Removed some dead code (testing image->matte) in PNG64 encoder.
-
-2014-07-07  6.8.9-6 Dirk Lemstra <dirk@snakeware...>
-  * Added support for R5G6B5, RGB5A1 and RGBA4 dds files.
-
-2014-07-01  6.8.9-6 Cristy  <quetzlzacatenango@image...>
-  * Write LAB pixels as percentages in the TXT image format (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25830).
-  * Throw exception when image morphology differs when comparing (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25927).
-  * Remove mogrify backup file (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25683).
-  * Read WEBP images from STDIN (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25886).
-
-2014-07-01  6.8.9-5 Cristy  <quetzlzacatenango@image...>
-  * New version 6.8.9-5, SVN revision 16123.
-
-2014-06-28  6.8.9-5 Glenn Randers-Pehrson <glennrp@image...>
-  * Do not let libpng16 check ICC/sRGB profiles in non-debug runs; we do
-    it ourselves anyway.  Avoids emitting "known incorrect profile" warnings.
-    For strict profile checking and warning, use "-debug coder".
-
-2014-06-27  6.8.9-5 Dirk Lemstra <dirk@snakeware...>
-  * Disabled OpenCL acceleration when image has a 'mask' or 'clip-mask'.
-
-2014-06-25  6.8.9-5 Cristy  <quetzlzacatenango@image...>
-  * Use -define profile:skip=icc, for example,  to skip color profiles on read.
-
-2014-06-23  6.8.9-4 Cristy  <quetzlzacatenango@image...>
-  * New version 6.8.9-4, SVN revision 16057.
-
-2014-06-15  6.8.9-4 Cristy  <quetzlzacatenango@image...>
-  * Support RMS argument for -evaluate-sequence and -statistic options.
-  * Fix lseek define for a successful compile under 64-bit MinGW.
-  * Pipe image to display program no longer reports an exception (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=23532).
-  * Check that profile is non-NULL in coders/tiff.c (reference
-    http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25770).
-
 2014-06-08  6.8.9-3 Cristy  <quetzlzacatenango@image...>
   * New version 6.8.9-3, SVN revision 15975.
 
@@ -148,7 +13,7 @@
     http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25667).
   * The inline coder can now read from standard input (reference
     http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25641).
-  * Add '=' character to the sanitize whitelist.
+  * Add '=' character to the santize whitelist.
 
 2014-05-30  6.8.9-2 Cristy  <quetzlzacatenango@image...>
   * New version 6.8.9-2, SVN revision 15932.
@@ -167,7 +32,7 @@
     http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25633).
   * Remove Makefile race condition where two targets attempt to install
     magick-baseconfig.h (reference
-    http://git.buildroot.net/buildroot/commit/?id=7395ee9d3b88e45798143e05a28d6d4b51409130)
+		http://git.buildroot.net/buildroot/commit/?id=7395ee9d3b88e45798143e05a28d6d4b51409130)
   * Fix memory leak in BlobToStringInfo() (reference
     http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25639).
   * In certain cases, -adaptive-sharpen failed to sharpen (reference
@@ -223,7 +88,7 @@
 
 2014-03-24  6.8.9-0 Cristy  <quetzlzacatenango@image...>
   * Don't transform sRGB compatible colorspaces to sRGB, doing so
-    inadvertently promotes colormapped images to DirectClass.
+    inadvertingly promotes colormapped images to DirectClass.
   * Use temporary path rather then current working directory (reference
     http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=25313).
   * Support -canny edge detection option.

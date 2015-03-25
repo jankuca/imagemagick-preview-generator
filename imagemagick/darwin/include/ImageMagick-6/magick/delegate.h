@@ -32,15 +32,15 @@ typedef struct _DelegateInfo
     *decode,
     *encode,
     *commands;
-
+                                                                                
   ssize_t
     mode;
-
+                                                                                
   MagickBooleanType
     thread_support,
     spawn,
     stealth;
-
+                                                                                
   struct _DelegateInfo
     *previous,
     *next;  /* deprecated, use GetDelegateInfoList() */
@@ -63,10 +63,6 @@ extern MagickExport const char
 extern MagickExport const DelegateInfo
   *GetDelegateInfo(const char *,const char *,ExceptionInfo *exception),
   **GetDelegateInfoList(const char *,size_t *,ExceptionInfo *);
-
-extern MagickExport int
-  ExternalDelegateCommand(const MagickBooleanType,const MagickBooleanType,
-    const char *,char *,ExceptionInfo *);
 
 extern MagickExport ssize_t
   GetDelegateMode(const DelegateInfo *);

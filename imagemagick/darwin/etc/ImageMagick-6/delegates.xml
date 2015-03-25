@@ -103,8 +103,8 @@
   <delegate decode="plt" command="&quot;echo&quot; &quot;set size 1.25,0.62; set terminal postscript portrait color solid; set output \'%o\'; load \'%i\'&quot; &gt; &quot;%u&quot;;&quot;gnuplot&quot; &quot;%u&quot;"/>
   <delegate decode="png" encode="webp" command="&quot;cwebp&quot; -quiet -q %Q &quot;%i&quot; -o &quot;%o&quot;"/>
   <delegate decode="pnm" encode="ilbm" mode="encode" command="&quot;ppmtoilbm&quot; -24if &quot;%i&quot; &gt; &quot;%o&quot;"/>
-  <delegate decode="bmp" encode="jxr" command="mv &quot;%i&quot; &quot;%i.bmp&quot;; &quot;JxrEncApp&quot; -i &quot;%i.bmp&quot; -o &quot;%o.jxr&quot;; mv &quot;%i.bmp&quot; &quot;%i&quot;; mv &quot;%o.jxr&quot; &quot;%o&quot;"/>
-  <delegate decode="bmp" encode="wdp" command="mv &quot;%i&quot; &quot;%i.bmp&quot;; &quot;JxrEncApp&quot; -i &quot;%i.bmp&quot; -o &quot;%o.jxr&quot;; mv &quot;%i.bmp&quot; &quot;%i&quot;; mv &quot;%o.jxr&quot; &quot;%o&quot;"/>
+  <delegate decode="pnm" encode="jxr" command="mv &quot;%i&quot; &quot;%i.pnm&quot;; &quot;&quot; -i &quot;%i.pnm&quot; -o &quot;%o.jxr&quot;; mv &quot;%i.pnm&quot; &quot;%i&quot;; mv &quot;%o.jxr&quot; &quot;%o&quot;"/>
+  <delegate decode="pnm" encode="wdp" command="mv &quot;%i&quot; &quot;%i.pnm&quot;; &quot;&quot; -i &quot;%i.pnm&quot; -o &quot;%o.jxr&quot;; mv &quot;%i.pnm&quot; &quot;%i&quot;; mv &quot;%o.jxr&quot; &quot;%o&quot;"/>
   <delegate decode="pov" command="&quot;povray&quot; &quot;+i%i&quot; -D0 &quot;+o%o&quot; +fn%q +w%w +h%h +a -q9 &quot;-kfi%s&quot; &quot;-kff%n&quot;;&quot;convert&quot; -concatenate &quot;%o*.png&quot; &quot;%o&quot;"/>
   <delegate decode="ppt" command="&quot;soffice&quot; --headless --convert-to pdf --outdir `dirname &quot;%i&quot;` &quot;%i&quot; 2&gt; &quot;%Z&quot;; mv &quot;%i.pdf&quot; &quot;%o&quot;"/>
   <delegate decode="pptx" command="&quot;soffice&quot; --headless --convert-to pdf --outdir `dirname &quot;%i&quot;` &quot;%i&quot; 2&gt; &quot;%Z&quot;; mv &quot;%i.pdf&quot; &quot;%o&quot;"/>
@@ -121,10 +121,10 @@
   <delegate decode="shtml" command="&quot;html2ps&quot; -U -o &quot;%o&quot; &quot;%i&quot;"/>
   <delegate decode="sid" command="&quot;mrsidgeodecode&quot; -if sid -i &quot;%i&quot; -of tif -o &quot;%o&quot; &gt; &quot;%u&quot;"/>
   <delegate decode="svg" command="&quot;rsvg-convert&quot; -o &quot;%o&quot; &quot;%i&quot;"/>
-  <delegate decode="svg:decode" stealth="True" command="&quot;inkscape&quot; &quot;%s&quot; --export-eps=&quot;%s&quot; --export-dpi=&quot;%s&quot; --export-background=&quot;%s&quot; --export-background-opacity=&quot;%s&quot; &gt; &quot;%s&quot; 2&gt;&amp;1"/>
+  <delegate decode="svg:decode" stealth="True" command="&quot;inkscape&quot; &quot;%s&quot; --export-png=&quot;%s&quot; --export-dpi=&quot;%s&quot; --export-background=&quot;%s&quot; --export-background-opacity=&quot;%s&quot; &gt; &quot;%s&quot; 2&gt;&amp;1"/>
   <delegate decode="tiff" encode="launch" mode="encode" command="&quot;gimp&quot; &quot;%i&quot;"/>
   <delegate decode="txt" encode="ps" mode="bi" command="&quot;enscript&quot; -o &quot;%o&quot; &quot;%i&quot;"/>
-  <delegate decode="wdp" command="mv &quot;%i&quot; &quot;%i.jxr&quot;; &quot;JxrDecApp&quot; -i &quot;%i.jxr&quot; -o &quot;%o.bmp&quot;; mv &quot;%i.jxr&quot; &quot;%i&quot;; mv &quot;%o.bmp&quot; &quot;%o&quot;"/>
+  <delegate decode="wdp" command="mv &quot;%i&quot; &quot;%i.jxr&quot;; &quot;JxrDecApp&quot; -i &quot;%i.jxr&quot; -o &quot;%o.pnm&quot;; mv &quot;%i.jxr&quot; &quot;%i&quot;; mv &quot;%o.pnm&quot; &quot;%o&quot;"/>
   <delegate decode="webp" command="&quot;dwebp&quot; -pam &quot;%i&quot; -o &quot;%o&quot;"/>
   <delegate decode="wmf" command="&quot;wmf2eps&quot; -o &quot;%o&quot; &quot;%i&quot;"/>
   <delegate decode="xls" command="&quot;soffice&quot; --headless --convert-to pdf --outdir `dirname &quot;%i&quot;` &quot;%i&quot; 2&gt; &quot;%Z&quot;; mv &quot;%i.pdf&quot; &quot;%o&quot;"/>

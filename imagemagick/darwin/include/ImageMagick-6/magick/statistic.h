@@ -24,9 +24,6 @@ extern "C" {
 
 #include "magick/draw.h"
 
-#define MaximumNumberOfImageMoments  8
-#define MaximumNumberOfPerceptualHashes  7
-
 typedef struct _ChannelStatistics
 {
   size_t
@@ -43,11 +40,8 @@ typedef struct _ChannelStatistics
     variance,
     standard_deviation,
     kurtosis,
-    skewness,
-    entropy;
+    skewness;
 } ChannelStatistics;
-
-#undef I
 
 typedef struct _ChannelMoments
 {
@@ -104,8 +98,7 @@ typedef enum
   AbsEvaluateOperator,
   ExponentialEvaluateOperator,
   MedianEvaluateOperator,
-  SumEvaluateOperator,
-  RootMeanSquareEvaluateOperator
+  SumEvaluateOperator
 } MagickEvaluateOperator;
 
 typedef enum
@@ -127,8 +120,7 @@ typedef enum
   MinimumStatistic,
   ModeStatistic,
   NonpeakStatistic,
-  StandardDeviationStatistic,
-  RootMeanSquareStatistic
+  StandardDeviationStatistic
 } StatisticType;
 
 extern MagickExport ChannelStatistics
@@ -159,8 +151,6 @@ extern MagickExport MagickBooleanType
     ExceptionInfo *),
   FunctionImageChannel(Image *,const ChannelType,const MagickFunction,
     const size_t,const double *,ExceptionInfo *),
-  GetImageChannelEntropy(const Image *,const ChannelType,double *,
-    ExceptionInfo *),
   GetImageChannelExtrema(const Image *,const ChannelType,size_t *,size_t *,
     ExceptionInfo *),
   GetImageChannelMean(const Image *,const ChannelType,double *,double *,
@@ -169,7 +159,6 @@ extern MagickExport MagickBooleanType
     ExceptionInfo *),
   GetImageChannelRange(const Image *,const ChannelType,double *,double *,
     ExceptionInfo *),
-  GetImageEntropy(const Image *,double *,ExceptionInfo *),
   GetImageExtrema(const Image *,size_t *,size_t *,ExceptionInfo *),
   GetImageMean(const Image *,double *,double *,ExceptionInfo *),
   GetImageKurtosis(const Image *,double *,double *,ExceptionInfo *),
