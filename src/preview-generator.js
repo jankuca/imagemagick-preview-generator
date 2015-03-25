@@ -1,3 +1,4 @@
+var os = require('os');
 var path = require('path');
 
 
@@ -20,7 +21,11 @@ function PreviewGenerator(child_process, platform_id) {
 PreviewGenerator.prototype.createPreview = function (
     image_filename, preview_filename, callback) {
   var executable = path.join(this._im_dirname, 'bin', 'convert')
-  var cmd = executable + ' ' + image_filename + '[0] ' + preview_filename;
+  var cmd = [
+    '"' + executable + '"',
+    '"' + image_filename + '[0]"',
+    '"' + preview_filename + '"'
+  ].join(' ');
 
   var options = {
     env: {
