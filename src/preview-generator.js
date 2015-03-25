@@ -40,4 +40,19 @@ PreviewGenerator.prototype.createPreview = function (
 };
 
 
+PreviewGenerator.prototype.createTemporaryPreview = function (
+    image_filename, format, callback) {
+  var tmpdir = os.tmpdir();
+  var basename = 'preview-' + Date.now() + '-' + Math.random() + '.' + format;
+  var preview_filename = path.join(tmpdir, basename);
+
+  this.createPreview(image_filename, preview_filename, function (err) {
+    if (err) {
+      return callback(err, null);
+    }
+    callback(null, preview_filename);
+  });
+};
+
+
 module.exports = PreviewGenerator;
