@@ -15,7 +15,7 @@ function PreviewGenerator(child_process, platform_id) {
 
   this._platform_id = platform_id || global.process.platform;
   this._im_dirname = null;
-  if ([ 'darwin' ].indexOf(this._platform_id) !== -1) {
+  if ([ 'darwin', 'win32' ].indexOf(this._platform_id) !== -1) {
     this._im_dirname = path.join(IM_DIRECTORY, this._platform_id);
   }
 };
