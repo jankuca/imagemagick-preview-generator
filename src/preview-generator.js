@@ -8,17 +8,20 @@ var IM_DIRECTORY = path.resolve(__dirname, '..', 'imagemagick');
 /**
  * @constructor
  * @param {ChildProcessApi} child_process A child process API implementation.
- * @param {string} platform_id A platform ID (darwin, linux, win32)
- * @param {string=} imagemagick_dirname The path to the imagemagick directory.
+ * @param {string=} imagemagick_platform_dirname
+ *   The path to the imagemagick executables.
  */
-function PreviewGenerator(child_process, platform_id, imagemagick_dirname) {
+function PreviewGenerator(child_process, imagemagick_platform_dirname) {
   this.$child_process = child_process || require('child_process');
 
-  this._platform_id = platform_id || global.process.platform;
   this._im_dirname = null;
-  if ([ 'darwin', 'win32' ].indexOf(this._platform_id) !== -1) {
-    imagemagick_dirname = imagemagick_dirname || IM_DIRECTORY;
-    this._im_dirname = path.join(imagemagick_dirname, this._platform_id);
+  if (imagemagick_platform_dirname) {
+    this._im_dirname = imagemagick_platform_dirname;
+  } else {
+    var platform_id = global.process.platform;
+    if ([ 'darwin', 'win32' ].indexOf(platform_id) !== -1) {
+      this._im_dirname = path.join(IM_DIRECTORY, platform_id);
+    }
   }
 };
 
